@@ -59,13 +59,13 @@
           <!-- Search -->
           {% if not request.user.is_authenticated %}
           <section class="alt">
-            <a href="{% url '' %}" class="button mb-2">Ingresar</a>
-            <a href="{% url '' %}" class="button">Registrarse</a>
+            <a href="{% url 'login' %}" class="button mb-2">Ingresar</a>
+            <a href="{% url 'register' %}" class="button">Registrarse</a>
           </section>
           {% else %}
           <section class="alt">
             <h4>Bienvenido, {{user.first_name}} {{user.last_name}}</h4>
-            <a href="{% url '' %}" class="button">Logout</a>
+            <a href="{% url 'logout' %}" class="button">Logout</a>
           </section>
           {% endif %}
           <!-- Menu -->

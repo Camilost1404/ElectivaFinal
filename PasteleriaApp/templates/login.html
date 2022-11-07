@@ -1,0 +1,12 @@
+{% extends 'index.html' %} {% load static %} {% block content %}
+<section>
+  <header>
+    <h1>Iniciar Sesión</h1>
+  </header>
+  <form method="post">
+    {% csrf_token %} {{form.as_p}}
+    <button type="submit" class="button">Iniciar Sesión</button>
+    <a href="{% url 'register' %}" class="button">Registrarse</a>
+  </form>
+</section>
+{% endblock %}

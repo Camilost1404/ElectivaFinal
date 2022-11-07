@@ -23,6 +23,9 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.inicio, name=""),
+    path('accounts/login/', LoginView.as_view(template_name = 'login.html'), name="login"),
+    path('register', views.register, name="register"),
+    path('logout', logout_then_login, name="logout"),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
