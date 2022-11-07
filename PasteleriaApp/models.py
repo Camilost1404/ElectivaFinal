@@ -28,12 +28,12 @@ class Sabor(models.Model):
 
 class Relleno(models.Model):
     nombre_relleno = models.CharField(max_length=45)
-    precio = models.DecimalField(max_digits = 10, decimal_places=2)
+    precio = models.DecimalField(max_digits=10, decimal_places=2)
 
 
 class Cobertura(models.Model):
     nombre_cobertura = models.CharField(max_length=45)
-    precio = models.DecimalField(max_digits = 10, decimal_places=2)
+    precio = models.DecimalField(max_digits=10, decimal_places=2)
 
 
 class Producto(models.Model):
@@ -47,5 +47,5 @@ class Producto(models.Model):
 class detalle_pedido(models.Model):
     codigo_pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
     codigo_producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
-    precio = models.DecimalField(max_digits = 10, decimal_places=2)
+    precio = models.DecimalField(max_digits=10, decimal_places=2)
     cantidad = models.IntegerField()
