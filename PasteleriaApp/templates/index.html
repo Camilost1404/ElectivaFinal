@@ -73,8 +73,8 @@
             <ul>
               <li><a href="{% url '' %}">Inicio</a></li>
               {% if request.user.is_authenticated %}
-              <li><a href="{% url '' %}">Crea tu Pastel</a></li>
-              <li><a href="{% url '' %}">Carrito de compras</a></li>
+              <li><a href="{% url 'pastel' %}">Crea tu Pastel</a></li>
+              <li><a href="{% url 'compras' %}">Carrito de compras</a></li>
               {% endif %}
             </ul>
           </nav>
