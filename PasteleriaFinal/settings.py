@@ -141,3 +141,5 @@ AUTH_USER_MODEL = 'PasteleriaApp.User'
 ALLOWED_HOSTS = ['pasteleria.azurewebsites.net', '127.0.0.1']
 
 LOGIN_REDIRECT_URL = reverse_lazy('')
+
+CSRF_TRUSTED_ORIGINS = ['https://pasteleria.azurewebsites.net']
