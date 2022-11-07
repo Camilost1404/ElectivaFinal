@@ -7,7 +7,7 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
     email = models.EmailField(unique=True)
     direccion = models.CharField(max_length=60)
-    telefono = models.IntegerField()
+    telefono = models.CharField(max_length=10)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
