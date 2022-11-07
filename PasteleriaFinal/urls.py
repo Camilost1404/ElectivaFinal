@@ -18,8 +18,11 @@ from django.urls import path
 from PasteleriaApp import views
 from django.contrib.auth.views import LoginView, logout_then_login
 from django.contrib.auth.decorators import login_required
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.inicio, name=""),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
