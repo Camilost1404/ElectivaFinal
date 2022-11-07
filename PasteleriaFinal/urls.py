@@ -26,6 +26,8 @@ urlpatterns = [
     path('accounts/login/', LoginView.as_view(template_name = 'login.html'), name="login"),
     path('register', views.register, name="register"),
     path('logout', logout_then_login, name="logout"),
+    path('compras', login_required(views.compras), name="compras"),
+    path('pastel', login_required(views.pastel), name="pastel"),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

@@ -1,0 +1,83 @@
+{% extends 'index.html' %} {% load static %} {% block content %}
+<section>
+  <header>
+    <h1>Diseña <span>Tu pastel</span></h1>
+    <h3>Arma aquí tu pastel</h3>
+  </header>
+
+  <form>
+    <div class="shadow p-3 mb-5 bg-body rounded">
+      <div class="col-md-4 m-2 p-1">
+        <select class="form-select" aria-label="Default select example">
+          <option selected disabled>Seleccione el número de pisos</option>
+          <option value="1">
+            Piso 1
+            <p class="text-muted">(2 a 8 personas)</p>
+          </option>
+          <option value="1">
+            Piso 2
+            <p class="text-muted">(9 a 14 personas)</p>
+          </option>
+          <option value="1">
+            Piso 3
+            <p class="text-muted">(15 a 22 personas)</p>
+          </option>
+          <option value="1">
+            Piso 4
+            <p class="text-muted">(22 a 30 personas)</p>
+          </option>
+        </select>
+      </div>
+
+      <div class="col-md-4 m-2 p-1">
+        <select class="form-select" aria-label="Default select example">
+          <option selected disabled>Seleccione su relleno</option>
+          <option value="1">Espuma de nutella</option>
+          <option value="2">Crema de frutas</option>
+          <option value="3">Crema de queso</option>
+          <option value="4">Crema de naranja</option>
+          <option value="5">Espuma de chocolate</option>
+        </select>
+      </div>
+
+      <div class="col-md-4 m-2 p-1">
+        <select class="form-select" aria-label="Default select example">
+          <option selected disabled>Seleccione su cobertura</option>
+          <option value="1">Fondat</option>
+          <option value="2">Chantilli</option>
+          <option value="3">Cafe y arequipe</option>
+          <option value="4">Crema Pastelera</option>
+          <option value="5">Chocolate Semi-amargo</option>
+        </select>
+      </div>
+
+      <div class="col-md-4 m-2 p-1">
+        <select class="form-select" aria-label="Default select example">
+          <option selected disabled>Seleccione el sabor</option>
+          <option value="1">Vainilla</option>
+          <option value="2">Chocolate</option>
+          <option value="3">Amapola</option>
+          <option value="4">Naranja</option>
+          <option value="5">Zebra</option>
+        </select>
+      </div>
+
+      <div class="form-floating m-2 p-2 col-md-4">
+        <textarea
+          class="form-control"
+          placeholder=""
+          id="floatingTextarea2"
+          style="height: 100px"
+        ></textarea>
+        <label for="floatingTextarea2"
+          >Escribe cosas adicionales que desees</label
+        >
+      </div>
+    </div>
+
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <button type="button" class="button">Enviar</button>
+    </div>
+  </form>
+</section>
+{% endblock %}
