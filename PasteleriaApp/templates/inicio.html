@@ -1,0 +1,117 @@
+{% extends 'index.html' %} {% load static %} {% block content %}
+
+<section>
+  <div
+    id="carouselExampleIndicators"
+    class="carousel slide"
+    data-bs-ride="true"
+  >
+    <div class="carousel-indicators">
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="1"
+        aria-label="Slide 2"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="2"
+        aria-label="Slide 3"
+      ></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img
+          src="{% static 'img/Pastel1.jpg' %}"
+          class="d-block w-100"
+          alt="Pastel1"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="{% static 'img/Pastel2.jpg' %}"
+          class="d-block w-100"
+          alt="Pastel2"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="{% static 'img/Pastel3.jpg' %}"
+          class="d-block w-100"
+          alt="Pastel3"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="content">
+    <header>
+      <h1>Acerca de Nosotros</h1>
+    </header>
+    <p>
+      Somos una pastelería con más de 10 años de experiencia en repostería en la ciudad
+      de Villavicencio, nos especializamos en la personalizacion de pasteles según la ocasión para la cual lo
+      requieran los clientes.
+    </p>
+    <ul class="actions">
+      <li><a href="pastel" class="button big">Crea tu Pastel YA!</a></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <header class="major">
+    <h2>Reseñas Clientes</h2>
+  </header>
+  <div class="posts">
+    <article>
+      <div class="image">
+        <img src="{% static 'img/Reseña1.png' %}" alt="" />
+      </div>
+      <h3>Pepita Perez</h3>
+      <p>
+        A mi esposo le encantó mucho el pastel para nuestro aniversario, gracias
+      </p>
+    </article>
+    <article>
+      <div class="image">
+        <img src="{% static 'img/Reseña2.png' %}" alt="" />
+      </div>
+      <h3>Patricia Martinez</h3>
+      <p>Minimalista, justo lo que buscaba y el sabor delicioso</p>
+    </article>
+    <article>
+      <div class="image">
+        <img src="{% static 'img/Reseña3.jpg' %}" alt="" />
+      </div>
+      <h3>Mateo Gonzalez</h3>
+      <p>
+        Deliciosos, una pastelería única y con mucha variedad de tortas... Hay
+        que ir a comer
+      </p>
+    </article>
+    <article>
+      <div class="image">
+        <img src="{% static 'img/Reseña4.jpg' %}" alt="" />
+      </div>
+      <h3>Toñito Velez</h3>
+      <p>
+        Mi hija quedó encantada con el pastel y yo quedé satisfecho con el
+        servicio
+      </p>
+    </article>
+  </div>
+</section>
+
+{% endblock %}

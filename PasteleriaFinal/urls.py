@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from PasteleriaApp import views
+from django.contrib.auth.views import LoginView, logout_then_login
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.inicio, name=""),
 ]
