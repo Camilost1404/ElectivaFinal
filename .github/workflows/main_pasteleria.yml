@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'pasteleria'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8BD6854DFF164CFF91A45EEA278279E4 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8E2B40E5E5794655AF3B1A3DCAE1BE9A }}
