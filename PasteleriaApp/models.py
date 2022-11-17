@@ -36,6 +36,7 @@ class Cobertura(models.Model):
     precio = models.DecimalField(max_digits=10, decimal_places=2)
 
 
+
 class Producto(models.Model):
     sabor = models.ForeignKey(Sabor, on_delete=models.CASCADE)
     relleno = models.ForeignKey(Relleno, on_delete=models.CASCADE)

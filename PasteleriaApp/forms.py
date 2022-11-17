@@ -17,7 +17,7 @@ class UserRegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'first_name', 'last_name', 'password1', 'password2', 'direccion', 'telefono']
+        fields = ['email', 'username', 'first_name', 'last_name', 'password1', 'password2', 'direccion', 'telefono']
         help_texts = {k: '' for k in fields}
 
     def clean_email(self):

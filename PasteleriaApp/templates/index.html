@@ -31,24 +31,24 @@
             </h1>
             <ul class="icons">
               <li>
-                <a href="{% url '' %}" class="icon brands fa-twitter"
+                <a href="https://twitter.com/HTMLWebDesign" class="icon brands fa-twitter" target="_blank"
                   ><span class="label">Twitter</span></a
                 >
               </li>
               <li>
-                <a href="{% url '' %}" class="icon brands fa-facebook-f"
+                <a href="https://web.facebook.com/webdev4u" class="icon brands fa-facebook-f" target="_blank"
                   ><span class="label">Facebook</span></a
                 >
               </li>
               <li>
-                <a href="{% url '' %}" class="icon brands fa-instagram"
+                <a href="https://www.instagram.com/html_codes/" class="icon brands fa-instagram" target="_blank"
                   ><span class="label">Instagram</span></a
                 >
               </li>
             </ul>
           </header>
           {% if messages %} {% for message in messages %}
-          <div class="bg-success text-white">{{message}}</div>
+          <div class="alert alert-success text-center mt-2">{{message}}</div>
           {% endfor %} {% endif %} {% block content %} {%endblock %}
         </div>
       </div>
@@ -74,7 +74,8 @@
               <li><a href="{% url '' %}">Inicio</a></li>
               {% if request.user.is_authenticated %}
               <li><a href="{% url 'pastel' %}">Crea tu Pastel</a></li>
-              <li><a href="{% url 'compras' %}">Carrito de compras</a></li>
+              <li class="row"><a href="{% url 'compras' %}" class="col-9">Carrito de compras</a><div class="col" id="cantidad">{{request.session.carrito|length}}</div></li>
+              <li><a href="{% url 'historial' %}">Historial Compras</a></li>
               {% endif %}
             </ul>
           </nav>
