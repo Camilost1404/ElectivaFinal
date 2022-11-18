@@ -65,7 +65,7 @@
           {% else %}
           <section class="alt">
             <h4>Bienvenido, {{user.first_name}} {{user.last_name}}</h4>
-            <a href="{% url 'logout' %}" class="button">Logout</a>
+            <a href="{% url 'logout' %}" class="button">Cerrar Sesión</a>
           </section>
           {% endif %}
           <!-- Menu -->
@@ -75,7 +75,7 @@
               {% if request.user.is_authenticated %}
               <li><a href="{% url 'pastel' %}">Crea tu Pastel</a></li>
               <li class="row"><a href="{% url 'compras' %}" class="col-9">Carrito de compras</a><div class="col" id="cantidad">{{request.session.carrito|length}}</div></li>
-              <li><a href="{% url 'historial' %}">Historial Compras</a></li>
+              <li><a href="{% url 'historial' user.id %}">Historial Compras</a></li>
               {% endif %}
             </ul>
           </nav>

@@ -2,7 +2,7 @@
 <section>
   <header>
     <h1>Historial Pedidos</h1>
-    <h3>Danileo10</h3>
+    <h3>{{user.username}}</h3>
   </header>
 
   <div class="container gap-3">
@@ -16,19 +16,22 @@
           >
             <thead class="text-center">
               <tr>
-                <th>Id</th>
+                <th>Número Pedido</th>
                 <th>Fecha Pedido</th>
                 <th>Estado</th>
                 <th>Tipo de entrega</th>
+                <th>Total pedido</th>
               </tr>
             </thead>
             <tbody>
+              {% for item in data %}
               <tr>
-                <td>1</td>
-                <td>21/Oct/2022</td>
-                <td>Entregado</td>
-                <td>Domicilio</td>
-                <td>
+                <td>{{item.id}}</td>
+                <td>{{item.fecha_pedido}}</td>
+                <td>{{item.estado}}</td>
+                <td>{{item.tipo_entrega}}</td>
+                <td>{{item.total}}</td>
+                {% comment %} <td>
                   <div class="text-center">
                     <button
                       type="button"
@@ -39,101 +42,15 @@
                       +
                     </button>
                   </div>
-                </td>
+                </td> {% endcomment %}
               </tr>
-              <tr>
-                <td>2</td>
-                <td>21/Oct/2022</td>
-                <td>Entregado</td>
-                <td>Domicilio</td>
-                <td>
-                  <div class="text-center">
-                    <button
-                      type="button"
-                      class="button"
-                      data-toggle="modal"
-                      data-target="#modalDetPed"
-                    >
-                      +
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>21/Oct/2022</td>
-                <td>En Camino</td>
-                <td>Domicilio</td>
-                <td>
-                  <div class="text-center">
-                    <button
-                      type="button"
-                      class="button"
-                      data-toggle="modal"
-                      data-target="#modalDetPed"
-                    >
-                      +
-                    </button>
-                  </div>
-                </td>
-              </tr>
+              {% endfor %}
             </tbody>
           </table>
         </div>
       </div>
     </div>
   </div>
-
-  <!--modal-->
-  <div
-    class="modal fade"
-    id="modalDetPed"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="modalLabelDet"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-tittle" id="exampleModalLable">Pedido</h5>
-          <button
-            type="button"
-            class="close"
-            data-dismiss="modal"
-            aria-label="Close"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h3 class="modal-title" id="exampleModalLongTitle">
-                Detalle Pedido
-              </h3>
-            </div>
-            <div class="modal-body">
-              <h4>Producto</h4>
-              <h6>Pastel</h6>
-              <h4>Tamaño</h4>
-              <h6>Pastel</h6>
-              <h4>Aclaracion</h4>
-              <h6>Pastel</h6>
-              <h4>Cobertura</h4>
-              <h6>Pastel</h6>
-              <h4>Relleno</h4>
-              <h6>Pastel</h6>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">
-            Close
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
+
 {% endblock content %}

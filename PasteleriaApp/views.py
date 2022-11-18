@@ -43,7 +43,7 @@ def register(request):
             email = form.cleaned_data['email']
             password = form.cleaned_data['password1']
             messages.success(
-                request, f'Usuario {username} creado con exito')
+                request, f'Usuario {username} creado con éxito')
             usuario = authenticate(username=email, password=password)
             login(request, usuario)
             return redirect('')
@@ -107,7 +107,7 @@ def agregar_producto(request):
 
     # print(total_compra)
     messages.success(
-        request, f'Pastel creado con exito')
+        request, f'Pastel creado con éxito')
 
     return redirect('compras')
 
@@ -116,7 +116,7 @@ def eliminar_producto(request, producto_id):
     carrito = Carrito(request)
     carrito.eliminar(producto_id)
     messages.success(
-        request, f'Pastel eliminado con exito')
+        request, f'Pastel eliminado con éxito')
     return redirect('compras')
 
 
@@ -124,13 +124,36 @@ def limpiar_carrito(request):
     carrito = Carrito(request)
     carrito.limpiar()
     messages.success(
-        request, f'Productos eliminados con exito')
+        request, f'Productos eliminados con éxito')
     return redirect('compras')
 
 
-def historial(request):
+def historial(request, user_id):
 
-    return render(request, 'historial.html')
+    with connection.cursor() as cursor:
+
+        cursor.execute(
+            f'CALL traer_pedidos({user_id})')
+
+        columns = []
+
+        for column in cursor.description:
+
+            columns.append(column[0])
+
+        # print(cursor.description)
+        data = []
+
+        for row in cursor.fetchall():
+
+            data.append(dict(zip(columns, row)))
+
+        cursor.close()
+
+        connection.commit()
+        connection.close()
+
+    return render(request, 'historial.html', {'data': data})
 
 
 def comprar(request, user_id):
@@ -147,7 +170,8 @@ def comprar(request, user_id):
         user = user_id
         fecha = date.today()
 
-        cursor.execute(f'CALL pedido("{fecha}", "{tipo_entrega}", {total}, {user})')
+        cursor.execute(
+            f'CALL pedido("{fecha}", "{tipo_entrega}", {total}, {user})')
 
         for key, value in carrito.session['carrito'].items():
             tamaño = int(value['tamaño'])
@@ -158,7 +182,8 @@ def comprar(request, user_id):
             precio = float(value['precio_pastel'])
 
             # print(type(value['tamaño']))
-            cursor.execute(f'CALL guardar_producto({tamaño}, "{aclaracion}", "{cobertura}", "{relleno}", "{sabor}")')
+            cursor.execute(
+                f'CALL guardar_producto({tamaño}, "{aclaracion}", "{cobertura}", "{relleno}", "{sabor}")')
             cursor.execute(f'CALL detalle_pedido({precio})')
 
         cursor.close()
@@ -167,7 +192,7 @@ def comprar(request, user_id):
         connection.close()
 
     messages.success(
-        request, f'Compra realizada con exito')
+        request, f'Compra realizada con éxito')
     carrito.limpiar()
 
     return redirect('compras')
