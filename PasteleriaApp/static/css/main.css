@@ -3136,18 +3136,23 @@ button:disabled,
 
 /* Sidebar */
 #cantidad {
-	/* width: 20rem; */
-	/* height: 30rem; */
-	border-radius: 50%;
-	background: #f56a6a;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
+  /* width: 20rem; */
+  /* height: 30rem; */
+  border-radius: 50%;
+  background: #f56a6a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   color: white;
   font-weight: bold;
-  margin:0px auto;
-  padding:1%
+  margin: 0px auto;
+  padding: 1%
+}
+
+.disabled {
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 #sidebar {

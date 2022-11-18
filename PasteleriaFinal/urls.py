@@ -29,6 +29,7 @@ urlpatterns = [
     path('compras', login_required(views.compras), name="compras"),
     path('pastel', login_required(views.pastel), name="pastel"),
     path('historial', login_required(views.historial), name="historial"),
+    path('comprar/<int:user_id>/', login_required(views.comprar), name="comprar"),
     path('agregar_producto', login_required(views.agregar_producto), name="agregar_producto"),
     path('eliminar_producto/<int:producto_id>/', login_required(views.eliminar_producto), name="eliminar_producto"),
     path('limpiar_carrito', login_required(views.limpiar_carrito), name="limpiar_carrito"),

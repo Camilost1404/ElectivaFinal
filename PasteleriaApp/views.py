@@ -5,6 +5,7 @@ from django.contrib import messages
 from PasteleriaApp.models import Cobertura, Relleno, Sabor
 from PasteleriaApp.carrito import Carrito
 from django.db import connection
+from datetime import date
 
 # Create your views here.
 
@@ -130,3 +131,43 @@ def limpiar_carrito(request):
 def historial(request):
 
     return render(request, 'historial.html')
+
+
+def comprar(request, user_id):
+
+    with connection.cursor() as cursor:
+        carrito = Carrito(request)
+
+        if request.method == 'GET':
+            tipo_entrega = request.GET['tipo_entrega']
+        else:
+            return redirect('pastel')
+
+        total = float(carrito.session['total'])
+        user = user_id
+        fecha = date.today()
+
+        cursor.execute(f'CALL pedido("{fecha}", "{tipo_entrega}", {total}, {user})')
+
+        for key, value in carrito.session['carrito'].items():
+            tamaño = int(value['tamaño'])
+            aclaracion = value['aclaracion']
+            cobertura = value['cobertura']
+            sabor = value['sabor']
+            relleno = value['relleno']
+            precio = float(value['precio_pastel'])
+
+            # print(type(value['tamaño']))
+            cursor.execute(f'CALL guardar_producto({tamaño}, "{aclaracion}", "{cobertura}", "{relleno}", "{sabor}")')
+            cursor.execute(f'CALL detalle_pedido({precio})')
+
+        cursor.close()
+
+        connection.commit()
+        connection.close()
+
+    messages.success(
+        request, f'Compra realizada con exito')
+    carrito.limpiar()
+
+    return redirect('compras')
